@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>float Test App</title>
+
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="author" content="Philipp Klein">
+
+  <link rel="stylesheet" href="vendor/tether/dist/css/tether.min.css">
+  <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.min.css">
+
+  <style>
+    /* Move down content because we have a fixed navbar that is 50px tall */
+    body {
+      padding-top: 4.5rem;
+    }
+  </style>
+</head>
+<body ng-app="floatCharts">
+
+<navbar></navbar>
+
+<div ng-view class="container"></div>
+
+
+<script src="vendor/jquery/dist/jquery.min.js"></script>
+<script src="vendor/tether/dist/js/tether.min.js"></script>
+<script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<script src="vendor/angular/angular.min.js"></script>
+<script src="vendor/angular-resource/angular-resource.min.js"></script>
+<script src="vendor/angular-route/angular-route.min.js"></script>
+
+<script src="public/floatCharts.module.js"></script>
+<script src="public/common/common.module.js"></script>
+<script src="public/common/common.config.js"></script>
+<script src="public/common/navbar.component.js"></script>
+
+</body>
+</html>
