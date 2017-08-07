@@ -1,0 +1,27 @@
+{
+  "name": "float-charting-demo",
+  "version": "1.0.0",
+  "description": "run `npm install` and then `npm start` and go to https://localhost:8000 for further instructions",
+  "main": "gulpfile.js",
+  "dependencies": {},
+  "devDependencies": {
+    "bower": "^1.8.0",
+    "gulp": "^3.9.1",
+    "gulp-server-livereload": "^1.9.2"
+  },
+  "scripts": {
+    "start": "gulp",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "bower install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/float-wien/float-chart-demo.git"
+  },
+  "author": "Philipp Klein <pklein@float.wien>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/float-wien/float-chart-demo/issues"
+  },
+  "homepage": "https://github.com/float-wien/float-chart-demo#readme"
+}
