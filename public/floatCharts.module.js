@@ -1,3 +1,4 @@
 angular.module('floatCharts', [
-    'floatCharts.common'
+    'floatCharts.common',
+    'floatCharts.budget'
 ]);
