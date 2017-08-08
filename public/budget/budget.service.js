@@ -10,7 +10,41 @@ angular.module('floatCharts.budget').factory('budgetService', ($q, $timeout) => 
      * If the "date" is in the past, the "actualAmounts"- Value must be used, else
      * the "targetAmounts".
      *
-     * There are 4 different types of costTypes (NETNET, CLIENT, TECHNICAL, FEE).
+     * There are 4 different costTypes (NETNET, CLIENT, TECHNICAL, FEE). These
+     * costTypes must not be mixed in any visualization.
+     *
+     * The forecast categories are defined as follows (ID to name):
+     *  1	TV
+     *  2	Digital
+     *  3	w/m DISPLAY / TEXT Summe
+     *  4	w/m Video Instream Reserved
+     *  5	w/m (Display / Text) Google Display Network
+     *  6	w/m Social Facebook
+     *  7	w/m (Display/ Text) Programmatic
+     *  8	m (Display / Text) Reserved
+     *  9	w/m (Display / Text) Affiliate
+     * 10	Radio
+     * 11	Print
+     * 12	OOH
+     * 13	w (Display / Text) Reserved
+     * 14	w/m VIDEO Summe
+     * 15	w/m Video Instream Programmatic
+     * 16	w/m Video Youtube trueview
+     * 17	w/m SOCIAL Summe
+     * 19	w/m Social others
+     * 20	w/m SEARCH Summe
+     * 21	w/m Search Google
+     * 22	w/m Search others
+     * 23	NonMedia
+     * 24	Kino
+     * 25	Digital (Rest)
+     * 26	Klassik
+     * 27	Sonderwerbeformen
+     * 28	Research
+     * 29	Beratungsprodukte
+     * 30	Techn. Kosten
+     * 31	Pauschalhonorar
+     *
      */
 
     const BUDGET_2016 = {
