@@ -1,18 +1,55 @@
-<form name="myForm">
-    <label for="mySelect">Make a choice:</label>
-    <select name="mySelect" id="mySelect"
-      ng-options="option.name for option in costTypes.availableOptions track by option.id"
-      ng-model="costTypes.selectedOption"
-      ng-change="changedCostType()"></select><br/>
-
-    <input type="text" name="input" ng-blur="changedCategories()" ng-model="showCategoryBudgets">
-    </form>
-    <div style="float: left">
-    <canvas class="chart chart-line" chart-data="singleCatChart.y2016.data" chart-labels="labelsMonths" 
-    chart-series="singleCatChart.y2016.series" chart-click="onClick"></canvas>
+<div class="row">
+    <div class="col-sm-6">
+    <label for="selectCostType">Select Cost Type : </label> &nbsp; &nbsp;
+    <select name="selectCostType" id="selectCostType" ng-options="option.name for option in costTypes.availableOptions track by option.id"
+        ng-model="costTypes.selectedOption" ng-change="changedCostType()">
+    </select>
     </div>
-    <div style="float: left">
-    <canvas class="chart chart-line" chart-data="singleCatChart.y2017.data" chart-labels="labelsMonths" 
-	chart-series="singleCatChart.y2017.series" chart-click="onClick"></canvas>
+</div>
+<br/>
+<div class="row">
+    <div class="col-sm-12">
+        <strong>Single category chart</strong><br />
+        Show categories (1-30) <input type="text" name="input" ng-blur="changedCategories()" ng-model="showCategoryBudgets">
     </div>
-<div>
+    <div class="col-sm-6">
+        <strong>2016</strong>
+        <canvas class="chart chart-line" chart-data="singleCatChart.y2016.data" chart-labels="labelsMonths" chart-series="singleCatChart.y2016.series"
+            chart-click="onClick"></canvas>
+    </div>
+    <div class="col-sm-6">
+        <strong>2017</strong>
+        <canvas class="chart chart-line" chart-data="singleCatChart.y2017.data" chart-labels="labelsMonths" chart-series="singleCatChart.y2017.series"
+            chart-click="onClick"></canvas>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <strong>All categories chart</strong>
+    </div>
+    <div class="col-sm-6">
+        <strong>2016</strong>
+        <canvas class="chart chart-line" chart-data="allCatChart.y2016.data" chart-labels="labelsMonths" chart-series="seriesAllCatChart"
+            chart-click="onClick"></canvas>
+    </div>
+    <div class="col-sm-6">
+        <strong>2017</strong>
+        <canvas class="chart chart-line" chart-data="allCatChart.y2017.data" chart-labels="labelsMonths" chart-series="seriesAllCatChart"
+            chart-click="onClick"></canvas>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <strong>All months chart</strong>
+    </div>
+    <div class="col-sm-6">
+        <strong>2016</strong>
+        <canvas class="chart chart-line" chart-data="allMonthsChart.y2016.data" chart-labels="allMonthsChart.y2016.labels" chart-series="allMonthsChart.y2016.series"
+            chart-click="onClick"></canvas>
+    </div>
+    <div class="col-sm-6">
+        <strong>2017</strong>
+        <canvas class="chart chart-line" chart-data="allMonthsChart.y2017.data" chart-labels="allMonthsChart.y2017.labels" chart-series="allMonthsChart.y2017.series"
+            chart-click="onClick"></canvas>
+    </div>
+</div>

@@ -27,25 +27,38 @@ angular.module('floatCharts.budget').component('budgetChart', {
 
         budgetService.getBudget(42,2016).then(function(value) {
             budget[2016] = value;
-            $scope.singleCatChart.y2016 = budgetChartService.prepSingleCatChart(budget[2016].forecastCategoryBudgets, $scope.costTypes.selectedOption.id, $scope.showCategoryBudgets);
+            drawAllCharts2016();
         });
 
         budgetService.getBudget(42,2017).then(function(value) {
-            budget[2017] = value;
-            $scope.singleCatChart.y2017 = budgetChartService.prepSingleCatChart(budget[2017].forecastCategoryBudgets, $scope.costTypes.selectedOption.id, $scope.showCategoryBudgets);
+             budget[2017] = value;
+             drawAllCharts2017();
         });
 
         //---------------
 
         $scope.changedCostType = function() {
-            $scope.singleCatChart.y2016 = budgetChartService.prepSingleCatChart(budget[2016].forecastCategoryBudgets, $scope.costTypes.selectedOption.id, $scope.showCategoryBudgets);
-            $scope.singleCatChart.y2017 = budgetChartService.prepSingleCatChart(budget[2017].forecastCategoryBudgets, $scope.costTypes.selectedOption.id, $scope.showCategoryBudgets);
+            drawAllCharts2016();
+            drawAllCharts2017();
         };
         
         $scope.changedCategories = function() {
-            $scope.singleCatChart.y2016 = budgetChartService.drawSingleCatChart(budget[2016].forecastCategoryBudgets, $scope.costTypes.selectedOption.id, $scope.showCategoryBudgets);
-            $scope.singleCatChart.y2017 = budgetChartService.drawSingleCatChart(budget[2017].forecastCategoryBudgets, $scope.costTypes.selectedOption.id, $scope.showCategoryBudgets);
+            $scope.singleCatChart.y2016 = budgetChartService.prepSingleCatChart(budget[2016].forecastCategoryBudgets, $scope.costTypes.selectedOption.id, $scope.showCategoryBudgets);
+            $scope.singleCatChart.y2017 = budgetChartService.prepSingleCatChart(budget[2017].forecastCategoryBudgets, $scope.costTypes.selectedOption.id, $scope.showCategoryBudgets);
         };
 
+        //-----------------
+
+        drawAllCharts2016 = function() {
+            $scope.singleCatChart.y2016 = budgetChartService.prepSingleCatChart(budget[2016].forecastCategoryBudgets, $scope.costTypes.selectedOption.id, $scope.showCategoryBudgets);
+            $scope.allCatChart.y2016 = budgetChartService.prepAllCatChart(budget[2016].forecastCategoryBudgets, $scope.costTypes.selectedOption.id);
+            $scope.allMonthsChart.y2016 = budgetChartService.prepAllMonthsChart(budget[2016].forecastCategoryBudgets, $scope.costTypes.selectedOption.id);
+        }
+        
+        drawAllCharts2017 = function() {
+            $scope.singleCatChart.y2017 = budgetChartService.prepSingleCatChart(budget[2017].forecastCategoryBudgets, $scope.costTypes.selectedOption.id, $scope.showCategoryBudgets);
+            $scope.allCatChart.y2017 = budgetChartService.prepAllCatChart(budget[2017].forecastCategoryBudgets, $scope.costTypes.selectedOption.id);
+            $scope.allMonthsChart.y2017 = budgetChartService.prepAllMonthsChart(budget[2017].forecastCategoryBudgets, $scope.costTypes.selectedOption.id);
+        }
     }
 });
