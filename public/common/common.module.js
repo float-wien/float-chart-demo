@@ -1,4 +1,5 @@
 angular.module('floatCharts.common', [
     'ngResource',
-    'ngRoute'
+    'ngRoute',
+    'chart.js'
 ]);

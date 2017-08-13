@@ -1,0 +1,18 @@
+<form name="myForm">
+    <label for="mySelect">Make a choice:</label>
+    <select name="mySelect" id="mySelect"
+      ng-options="option.name for option in costTypes.availableOptions track by option.id"
+      ng-model="costTypes.selectedOption"
+      ng-change="changedCostType()"></select><br/>
+
+    <input type="text" name="input" ng-blur="changedCategories()" ng-model="showCategoryBudgets">
+    </form>
+    <div style="float: left">
+    <canvas class="chart chart-line" chart-data="singleCatChart.y2016.data" chart-labels="labelsMonths" 
+    chart-series="singleCatChart.y2016.series" chart-click="onClick"></canvas>
+    </div>
+    <div style="float: left">
+    <canvas class="chart chart-line" chart-data="singleCatChart.y2017.data" chart-labels="labelsMonths" 
+	chart-series="singleCatChart.y2017.series" chart-click="onClick"></canvas>
+    </div>
+<div>
