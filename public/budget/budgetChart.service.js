@@ -66,7 +66,7 @@ angular.module('floatCharts.budget').factory('budgetChartService', () => {
             arrTargetSumMonths.push(targetSumMonths);
             labels.push(objCatBudget.forecastCategoryId);
         });
-        data = [arrActualSumMonths, arrTargetSumMonths]; 
+        data = [arrActualSumMonths, arrTargetSumMonths];
         series = ['Actual amounts', 'Target Amounts'];
         return { data, labels, series };
     }
