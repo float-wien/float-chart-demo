@@ -25,15 +25,25 @@ angular.module('floatCharts.budget').component('budgetChart', {
 
         //--------------
 
+        // var promises = [budgetService.getBudget(42,2016), budgetService.getBudget(42,2017)];
+
+        // Promise.all(promises).then(function(value) {
+        //     budget[2016] = value[0];
+        //     drawAllCharts2016();
+            
+        // });
+
         budgetService.getBudget(42,2016).then(function(value) {
             budget[2016] = value;
             drawAllCharts2016();
+            budgetService.getBudget(42,2017).then(function(value) {
+                budget[2017] = value;
+                drawAllCharts2017();
+                drawYearsChart();
+            });     
         });
 
-        budgetService.getBudget(42,2017).then(function(value) {
-             budget[2017] = value;
-             drawAllCharts2017();
-        });
+       
 
         //---------------
 
@@ -59,6 +69,10 @@ angular.module('floatCharts.budget').component('budgetChart', {
             $scope.singleCatChart.y2017 = budgetChartService.prepSingleCatChart(budget[2017].forecastCategoryBudgets, $scope.costTypes.selectedOption.id, $scope.showCategoryBudgets);
             $scope.allCatChart.y2017 = budgetChartService.prepAllCatChart(budget[2017].forecastCategoryBudgets, $scope.costTypes.selectedOption.id);
             $scope.allMonthsChart.y2017 = budgetChartService.prepAllMonthsChart(budget[2017].forecastCategoryBudgets, $scope.costTypes.selectedOption.id);
+        }
+
+        drawYearsChart = function() {
+            $scope.yearsChart = budgetChartService.prepYearsChart(budget, $scope.costTypes.selectedOption.id)
         }
     }
 });
