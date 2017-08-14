@@ -1,41 +1,37 @@
 <div class="row">
     <div class="col-sm-6">
-    <label for="selectCostType">Select Cost Type : </label> &nbsp; &nbsp;
-    <select name="selectCostType" id="selectCostType" ng-options="option.name for option in costTypes.availableOptions track by option.id"
-        ng-model="costTypes.selectedOption" ng-change="changedCostType()">
+        <label for="selectCostType">Select Cost Type : </label> &nbsp; &nbsp;
+        <select name="selectCostType" id="selectCostType" ng-options="option.name for option in costTypes.availableOptions track by option.id"
+            ng-model="costTypes.selectedOption" ng-change="changedCostType()">
     </select>
     </div>
 </div>
 <br/>
 <div class="row">
     <div class="col-sm-12">
-        <strong>Single category chart</strong><br />
-        Show categories (1-30) <input type="text" name="input" ng-blur="changedCategories()" ng-model="showCategoryBudgets">
+        <strong>Single category chart (actual amount)</strong><br /> Show categories (1-30) <input type="text" name="input"
+            ng-blur="changedCategories()" ng-model="showCategoryBudgets">
     </div>
     <div class="col-sm-6">
         <strong>2016</strong>
-        <canvas class="chart chart-line" chart-data="singleCatChart.y2016.data" chart-labels="labelsMonths" chart-series="singleCatChart.y2016.series"
-            chart-click="onClick"></canvas>
+        <canvas class="chart chart-line" chart-data="singleCatChart.y2016.data" chart-labels="labelsMonths" chart-series="singleCatChart.y2016.series"></canvas>
     </div>
     <div class="col-sm-6">
         <strong>2017</strong>
-        <canvas class="chart chart-line" chart-data="singleCatChart.y2017.data" chart-labels="labelsMonths" chart-series="singleCatChart.y2017.series"
-            chart-click="onClick"></canvas>
+        <canvas class="chart chart-line" chart-data="singleCatChart.y2017.data" chart-labels="labelsMonths" chart-series="singleCatChart.y2017.series"></canvas>
     </div>
 </div>
 <div class="row">
     <div class="col-sm-12">
-        <strong>All categories chart</strong>
+        <strong>All categories chart (actual amount)</strong>
     </div>
     <div class="col-sm-6">
         <strong>2016</strong>
-        <canvas class="chart chart-line" chart-data="allCatChart.y2016.data" chart-labels="labelsMonths" chart-series="seriesAllCatChart"
-            chart-click="onClick"></canvas>
+        <canvas class="chart chart-bar" chart-data="allCatChart.y2016.data" chart-labels="labelsMonths" chart-series="seriesAllCatChart"></canvas>
     </div>
     <div class="col-sm-6">
         <strong>2017</strong>
-        <canvas class="chart chart-line" chart-data="allCatChart.y2017.data" chart-labels="labelsMonths" chart-series="seriesAllCatChart"
-            chart-click="onClick"></canvas>
+        <canvas class="chart chart-bar" chart-data="allCatChart.y2017.data" chart-labels="labelsMonths" chart-series="seriesAllCatChart"></canvas>
     </div>
 </div>
 <div class="row">
@@ -44,13 +40,11 @@
     </div>
     <div class="col-sm-6">
         <strong>2016</strong>
-        <canvas class="chart chart-line" chart-data="allMonthsChart.y2016.data" chart-labels="allMonthsChart.y2016.labels" chart-series="allMonthsChart.y2016.series"
-            chart-click="onClick"></canvas>
+        <canvas class="chart chart-bar" chart-data="allMonthsChart.y2016.data" chart-labels="allMonthsChart.y2016.labels" chart-series="allMonthsChart.y2016.series"></canvas>
     </div>
     <div class="col-sm-6">
         <strong>2017</strong>
-        <canvas class="chart chart-line" chart-data="allMonthsChart.y2017.data" chart-labels="allMonthsChart.y2017.labels" chart-series="allMonthsChart.y2017.series"
-            chart-click="onClick"></canvas>
+        <canvas class="chart chart-bar" chart-data="allMonthsChart.y2017.data" chart-labels="allMonthsChart.y2017.labels" chart-series="allMonthsChart.y2017.series"></canvas>
     </div>
 </div>
 <div class="row">
@@ -59,7 +53,6 @@
     </div>
     <div class="col-sm-6">
         <strong>2016/2017</strong>
-        <canvas class="chart chart-line" chart-data="yearsChart.data" chart-labels="yearsChart.labels" chart-series="yearsChart.series"
-            chart-click="onClick"></canvas>
+        <canvas class="chart chart-bar" chart-data="yearsChart.data" chart-labels="yearsChart.labels" chart-series="yearsChart.series"></canvas>
     </div>
 </div>

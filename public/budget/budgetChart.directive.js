@@ -12,7 +12,7 @@ angular.module('floatCharts.budget').component('budgetChart', {
             selectedOption: { id: 'NETNET', name: 'NETNET' } //This sets the default value of the select in the ui
         };
 
-        $scope.showCategoryBudgets = '1,3'; //initial value for categories
+        $scope.showCategoryBudgets = '2,3,4,10,13'; //initial value for categories
         $scope.labelsMonths = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
         $scope.seriesAllCatChart = ['All categories'];

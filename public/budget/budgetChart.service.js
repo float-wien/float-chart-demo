@@ -17,8 +17,8 @@ angular.module('floatCharts.budget').factory('budgetChartService', () => {
                 let singleChartData = [];
                 for (var i = 1; i <= 12; i++) {
                     singleChartData.push(
-                        forecastCategoryBudgets[catBudget].budgetElements.hasOwnProperty(['' + i])
-                            ? forecastCategoryBudgets[catBudget].budgetElements['' + i].actualAmounts[costType]
+                        forecastCategoryBudgets[catBudget].budgetElements.hasOwnProperty(['' + i]) && forecastCategoryBudgets[catBudget].budgetElements['' + i].actualAmounts[costType]
+                            ? forecastCategoryBudgets[catBudget].budgetElements['' + i].actualAmounts[costType].toFixed(2)
                             : 0);
                 }
                 data.push(singleChartData);
@@ -35,13 +35,13 @@ angular.module('floatCharts.budget').factory('budgetChartService', () => {
         //sum all categories for each month
         Object.values(forecastCategoryBudgets).forEach((objCatBudget) => {
             for (var i = 1; i <= 12; i++) {
-                if (objCatBudget.budgetElements.hasOwnProperty(['' + i])) {
+                if (objCatBudget.budgetElements.hasOwnProperty(['' + i]) && objCatBudget.budgetElements['' + i].actualAmounts[costType]) {
                     sumData['' + i] = (sumData['' + i] || 0) + objCatBudget.budgetElements['' + i].actualAmounts[costType];
                 }
             }
         });
         //create array from 1-12 instead of object    
-        for (var i = 1; i <= 12; i++) arrSumData.push(sumData.hasOwnProperty(['' + i]) ? sumData['' + i] : 0);
+        for (var i = 1; i <= 12; i++) arrSumData.push(sumData.hasOwnProperty(['' + i]) ? sumData['' + i].toFixed(2) : 0);
         data.push(arrSumData); //push to chart
         return { data };
     }
@@ -62,8 +62,8 @@ angular.module('floatCharts.budget').factory('budgetChartService', () => {
                 actualSumMonths += objMonthBudget.actualAmounts[costType];
                 targetSumMonths += objMonthBudget.targetAmounts[costType];
             });
-            arrActualSumMonths.push(actualSumMonths);
-            arrTargetSumMonths.push(targetSumMonths);
+            arrActualSumMonths.push(actualSumMonths.toFixed(2));
+            arrTargetSumMonths.push(targetSumMonths.toFixed(2));
             labels.push(objCatBudget.forecastCategoryId);
         });
         data = [arrActualSumMonths, arrTargetSumMonths];
@@ -83,6 +83,7 @@ angular.module('floatCharts.budget').factory('budgetChartService', () => {
             labels.push(budget.year);
             let actualSum = 0;
             let targetSum = 0;
+            // sum all actual values and target values
             Object.values(budget.forecastCategoryBudgets).forEach((objCatBudget) => {
                 Object.values(objCatBudget.budgetElements).forEach((objMonthBudget) => {
                     actualSum += objMonthBudget.actualAmounts[costType];
@@ -90,8 +91,8 @@ angular.module('floatCharts.budget').factory('budgetChartService', () => {
                 });
 
             });
-            arrActualSum.push(actualSum);
-            arrTargetSum.push(targetSum);
+            arrActualSum.push(actualSum.toFixed(2));
+            arrTargetSum.push(targetSum.toFixed(2));
         });
         data = [arrActualSum, arrTargetSum];
         return { data, labels, series };
